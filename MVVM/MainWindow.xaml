@@ -1,0 +1,31 @@
+﻿<Window x:Class="MVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVM" xmlns:viewmodel="clr-namespace:MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="{Binding TextContentButton}"
+                Command="{Binding DoCountCommand}"
+                HorizontalAlignment="Left" 
+                Margin="151,325,0,0"
+                Visibility="{Binding VisButton}"
+                VerticalAlignment="Top" Height="47" Width="404"/>
+
+        <ListBox ItemsSource="{Binding Items}"
+                 SelectedItem="{Binding SelectedItem}" 
+                 Margin="423,62,108,155"
+                 >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TextBlock Text="{Binding SelectedItem.Name}" Margin="45,264,531,114"/>
+
+    </Grid>
+</Window>
